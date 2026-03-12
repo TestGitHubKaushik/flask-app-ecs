@@ -16,7 +16,7 @@ jobs:
               python-version: 3.13
 
           - name: installing dependencies
-            run: pip install -r requirements
+            run: pip install -r requirements.txt
 
           - name: checking code via flake 8
             run: flake app.py
