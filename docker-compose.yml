@@ -1,0 +1,6 @@
+services:
+  myApp:
+    image: kaushik2393/flask-python-app:latest
+    ports:
+      - "80:80"
+  
