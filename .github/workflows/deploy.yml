@@ -1,0 +1,11 @@
+name: deploy-flask-app
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: deploy code using docker compose
+        run: docker compose down && docker compose up -d --build 
