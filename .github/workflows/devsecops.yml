@@ -8,6 +8,8 @@ jobs:
       uses: ./.github/workflows/secrets-scan.yml
   depe-scan:
       uses: ./.github/workflows/dependancies-scan.yml
+  dockerfile-scan:
+      uses: ./.github/workflows/dockerfile-scan.yml
   build-push:
       uses: ./.github/workflows/build-and-push.yml
       secrets: inherit
