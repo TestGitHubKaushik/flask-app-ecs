@@ -3,12 +3,12 @@ on:
   workflow_dispatch:
 jobs:
   linting:
-      - uses: ./.github/workflows/code-check-lint.yml
+      uses: ./.github/workflows/code-check-lint.yml
   secrets-scan:
-      - uses: ./.github/workflows/secrets-scan.yml
+      uses: ./.github/workflows/secrets-scan.yml
   depe-scan:
-      - uses: ./.github/workflows/dependancies-scan.yml
+      uses: ./.github/workflows/dependancies-scan.yml
   build-push:
-      - uses: ./.github/workflows/build-and-push.yml
+      uses: ./.github/workflows/build-and-push.yml
 
     
