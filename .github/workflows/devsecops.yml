@@ -11,9 +11,11 @@ jobs:
   dockerfile-scan:
       uses: ./.github/workflows/dockerfile-scan.yml
   build-push:
+      needs: [linting,secrets-scan,depe-scan,docker-image-scan]
       uses: ./.github/workflows/build-and-push.yml
       secrets: inherit
   docker-image-scan:
+      needs: [build-push]
       uses: ./.github/workflows/trivy-scan.yml
       secrets: inherit
 
