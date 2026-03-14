@@ -1,7 +1,14 @@
 name: deploy-flask-app
 
 on:
-  workflow_call:
+  workflow_call:secrets:
+      HOST:
+        required: true
+      USERNAME:
+        required: true
+      PASSWORD:
+        required: true
+    
 
 jobs:
   deploy:
