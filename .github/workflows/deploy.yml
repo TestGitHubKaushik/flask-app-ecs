@@ -3,9 +3,19 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: code checkout
         uses: actions/checkout@v4
-      - name: deploy code using docker compose
-        run: docker compose down && docker compose up -d --build 
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          scripts: |
+                mkdir /app
+                cd /app
+                scp -i "password" docker-compose.yml uername@host:/app     
+                docker compose down && docker compose up -d --build 
+              
