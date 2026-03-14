@@ -1,0 +1,9 @@
+name: trivy scan
+on:
+  workflow_call:
+jobs:
+  docker-image-scan:
+    runs-on: ubuntu-latest
+    steps:
+      
+  
