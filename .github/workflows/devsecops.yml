@@ -13,5 +13,6 @@ jobs:
       secrets: inherit
   docker-image-scan:
       uses: ./.github/workflows/trivy-scan.yml
+      secrets: inherit
 
     
