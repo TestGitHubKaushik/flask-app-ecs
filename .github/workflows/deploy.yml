@@ -19,18 +19,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug secrets
-        run: |
-          echo "HOST set: ${{ secrets.HOST != '' }}"
-          echo "USERNAME set: ${{ secrets.USERNAME != '' }}"
-          echo "PASSWORD set: ${{ secrets.PASSWORD != '' }}"
-
       - name: Create app directory on server
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.PASSWORD }}
           script: |
             mkdir -p /app
 
@@ -39,7 +33,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.PASSWORD }}
           source: "docker-compose.yml"
           target: "/app"
 
@@ -48,7 +42,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.PASSWORD }}
           script: |
             cd /app
             docker compose down
