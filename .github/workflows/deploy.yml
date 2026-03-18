@@ -45,5 +45,6 @@ jobs:
           key: ${{ secrets.PASSWORD }}
           script: |
             cd ~/app
-            docker-compose down
-            docker-compose up -d --build --force-recreate
+             docker-compose down
+             docker-compose build --no-cache
+             docker-compose up -d --force-recreate
