@@ -13,10 +13,17 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Debug secrets
+        run: |
+          echo "HOST set: ${{ secrets.HOST != '' }}"
+          echo "USERNAME set: ${{ secrets.USERNAME != '' }}"
+          echo "PASSWORD set: ${{ secrets.PASSWORD != '' }}"
 
       - name: Create app directory on server
         uses: appleboy/ssh-action@v1
