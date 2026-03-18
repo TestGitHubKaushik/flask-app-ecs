@@ -20,5 +20,6 @@ jobs:
             push: true
             tags: ${{ vars.DOCKERHUB_USER }}/flask-python-app:latest
                   ${{ vars.DOCKERHUB_USER }}/flask-python-app:${{ github.sha }}
+            build-args: CACHEBUST=${{ github.run_number }}
   
       
