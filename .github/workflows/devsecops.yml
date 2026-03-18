@@ -1,6 +1,7 @@
 name: devsecops pipeline
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
 jobs:
   linting:
       uses: ./.github/workflows/code-check-lint.yml
