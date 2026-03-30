@@ -1,9 +1,9 @@
 name: devsecops pipeline
 on:
-  push:
-    branches: [main]
-    paths:
-      - "**.html"
+  workflow_dispatch: 
+   # branches: [main]
+    #paths:
+    #  - "**.html"
 jobs:
   linting:
       uses: ./.github/workflows/code-check-lint.yml
